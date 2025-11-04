@@ -2,22 +2,30 @@
 
 ## Descripción
 
-Este proyecto permite monitorear el sistema y ejecutar configuraciones iniciales mediante un script `setup.sh`. Aquí puedes describir brevemente el propósito y funcionalidades principales del proyecto.
+Este proyecto permite monitorear el sistema y ejecutar configuraciones iniciales mediante un script `setup.sh`.
 
 ## Clonar el repositorio
 
 Para clonar este repositorio en tu máquina local, usa el siguiente comando:
-
+`git clone https://github.com/Totenkopf1995/systemMonitor.git`
 
 ## Ejecutar configuración inicial
 
-Para ejecutar la configuración inicial, corre el script `setup.sh` con las opciones que necesites (aquí puedes colocar las banderas disponibles):
-
-
+Con el git clone anterior en la opcion `bash setup.sh`, verifica que tengas instaladas las dependencias necesarias, si no es asi las instalara.
 
 ## Opciones disponibles
 
-*(Aquí puedes detallar las banderas y opciones que el script `setup.sh` acepta y su funcionalidad)*
+USAGE: systemMonitor <COMMAND>
+
+COMMANDS:
+  root     Verifica el % usado en /
+  cpu      Uso del CPU en %
+  used     Memoria usada
+  free     Memoria libre
+  swap     Swap usado en %
+  home     Cantidad de memoria usada en el Home
+  process  Numero de procesos
+  clean    Eliminar logs
 
 ## Tecnologías utilizadas
 
@@ -26,11 +34,7 @@ Para ejecutar la configuración inicial, corre el script `setup.sh` con las opci
 
 ## Autor
 
-Tu nombre o el nombre del equipo
-
-## Licencia
-
-Información sobre la licencia del proyecto (por ejemplo MIT, GPL, etc.)
+t0t3nk0pf
 
 ---
 
