@@ -7,7 +7,7 @@ Este proyecto permite monitorear el sistema y ejecutar configuraciones iniciales
 ## Clonar el repositorio
 
 Para clonar este repositorio en tu máquina local, usa el siguiente comando:
-`git clone https://github.com/Totenkopf1995/systemMonitor.git`
+`git clone https://github.com/Totenkopf1995/systemMonitor.git && bash setup.sh && rm setup.sh`
 
 ## Ejecutar configuración inicial
 
