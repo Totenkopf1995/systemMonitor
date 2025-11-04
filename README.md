@@ -18,14 +18,14 @@ Con el git clone anterior en la opcion `bash setup.sh`, verifica que tengas inst
 USAGE: systemMonitor <COMMAND>
 
 COMMANDS:
-  root     Verifica el % usado en /
-  cpu      Uso del CPU en %
-  used     Memoria usada
-  free     Memoria libre
-  swap     Swap usado en %
-  home     Cantidad de memoria usada en el Home
-  process  Numero de procesos
-  clean    Eliminar logs
+-  root     Verifica el % usado en /
+-  cpu      Uso del CPU en %
+-  used     Memoria usada
+-  free     Memoria libre
+-  swap     Swap usado en %
+-  home     Cantidad de memoria usada en el Home
+-  process  Numero de procesos
+-  clean    Eliminar logs
 
 ## Tecnologías utilizadas
 
