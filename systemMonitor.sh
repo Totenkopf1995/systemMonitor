@@ -52,7 +52,7 @@ dlog (){
   fi
 }
 
-# @cmd Verifica el % usado en /
+# @cmd Verifica el % usado en raiz
 root (){
   msn="$(date) ${BG_RED}Alerta:${ROOT}%${RESET} mayor o igual al ${NUM}%"
   msn1="$(date) ${GREEN}${ROOT}%${RESET} menor al ${NUM}%"
