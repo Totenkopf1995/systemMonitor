@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # Instala cargo y argc si no están instalados
 instalar (){
-  herramienta="cargo"
+  declare -r herramienta="cargo"
 
   if ! command -v "$herramienta" > /dev/null 2>&1; then
     echo "Cargo no instalado, Instalando..."
@@ -11,7 +12,7 @@ instalar (){
     echo "Instalando argc..."
     cargo install argc
   else
-    herramienta2="argc"
+    declare -r herramienta2="argc"
 
     echo "Cargo se encuentra instalado"
     if ! command -v "$herramienta2" > /dev/null 2>&1; then

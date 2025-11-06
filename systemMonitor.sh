@@ -3,43 +3,43 @@
 set -euo pipefail
 
 # Colores de texto (setaf)
-BLACK=$(tput setaf 0)      # Negro
-RED=$(tput setaf 1)        # Rojo
-GREEN=$(tput setaf 2)      # Verde
-YELLOW=$(tput setaf 3)     # Amarillo
-BLUE=$(tput setaf 4)       # Azul
-MAGENTA=$(tput setaf 5)    # Magenta
-CYAN=$(tput setaf 6)       # Cian
-WHITE=$(tput setaf 7)      # Blanco
+declare -r BLACK=$(tput setaf 0)      # Negro
+declare -r RED=$(tput setaf 1)        # Rojo
+declare -r GREEN=$(tput setaf 2)      # Verde
+declare -r YELLOW=$(tput setaf 3)     # Amarillo
+declare -r BLUE=$(tput setaf 4)       # Azul
+declare -r MAGENTA=$(tput setaf 5)    # Magenta
+declare -r CYAN=$(tput setaf 6)       # Cian
+declare -r WHITE=$(tput setaf 7)      # Blanco
 
 # Colores de fondo (setab)
-BG_BLACK=$(tput setab 0)   # Fondo negro
-BG_RED=$(tput setab 1)     # Fondo rojo
-BG_GREEN=$(tput setab 2)   # Fondo verde
-BG_YELLOW=$(tput setab 3)  # Fondo amarillo
-BG_BLUE=$(tput setab 4)    # Fondo azul
-BG_MAGENTA=$(tput setab 5) # Fondo magenta
-BG_CYAN=$(tput setab 6)    # Fondo cian
-BG_WHITE=$(tput setab 7)   # Fondo blanco
+declare -r BG_BLACK=$(tput setab 0)   # Fondo negro
+declare -r BG_RED=$(tput setab 1)     # Fondo rojo
+declare -r BG_GREEN=$(tput setab 2)   # Fondo verde
+declare -r BG_YELLOW=$(tput setab 3)  # Fondo amarillo
+declare -r BG_BLUE=$(tput setab 4)    # Fondo azul
+declare -r BG_MAGENTA=$(tput setab 5) # Fondo magenta
+declare -r BG_CYAN=$(tput setab 6)    # Fondo cian
+declare -r BG_WHITE=$(tput setab 7)   # Fondo blanco
 
 # Resetear colores
-RESET=$(tput sgr0)
+declare -r RESET=$(tput sgr0)
 
 # Rutas
-FLOG="systemMonitor.logs"
-DLOG="/home/$USER/backup_logs"
+declare -r FLOG="systemMonitor.logs"
+declare -r DLOG="/home/$USER/backup_logs"
 
 # Numero limite
 NUM=66
 
 # Comandos
-ROOT=$(df / | tail -1 | awk '{print $5}' | tr -d '%')
-CPU=$(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}')
-USED=$(free | awk '/Mem:/ {printf "%.0f", $3/$2*100}')
-FREE=$(free -m | awk '/Mem:/ {print $4}')
-SWAP=$(free | awk '/Swap:/ {if ($2==0) print 0; else printf "%.0f", $3/$2*100}')
-HOME=$(df /home | tail -1 | awk '{print $5}' | tr -d '%')
-PROCESS=$(ps ax --no-headers | wc -l)
+declare -r ROOT=$(df / | tail -1 | awk '{print $5}' | tr -d '%')
+declare -r CPU=$(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}')
+declare -r USED=$(free | awk '/Mem:/ {printf "%.0f", $3/$2*100}')
+declare -r FREE=$(free -m | awk '/Mem:/ {print $4}')
+declare -r SWAP=$(free | awk '/Swap:/ {if ($2==0) print 0; else printf "%.0f", $3/$2*100}')
+declare -r HOME=$(df /home | tail -1 | awk '{print $5}' | tr -d '%')
+declare -r PROCESS=$(ps ax --no-headers | wc -l)
 
 # Funcion que valida la existencia de la ruta
 dlog (){
