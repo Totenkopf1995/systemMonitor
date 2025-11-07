@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-
 set -euo pipefail
+trap 'echo "Interrupción detectada!"; exit' SIGINT
+trap 'echo "Script finalizado."' EXIT
+trap 'echo "$(date) Error en línea $LINENO con código $?" >> error.log' ERR
 
 # Colores de texto (setaf)
 declare -r BLACK=$(tput setaf 0)      # Negro
@@ -30,7 +32,7 @@ declare -r FLOG="systemMonitor.logs"
 declare -r DLOG="/home/$USER/backup_logs"
 
 # Numero limite
-NUM=66
+declare -ri NUM=66
 
 # Comandos
 declare -r ROOT=$(df / | tail -1 | awk '{print $5}' | tr -d '%')
@@ -54,8 +56,8 @@ dlog (){
 
 # @cmd Verifica el % usado en raiz
 root (){
-  msn="$(date) ${BG_RED}Alerta:${ROOT}%${RESET} mayor o igual al ${NUM}%"
-  msn1="$(date) ${GREEN}${ROOT}%${RESET} menor al ${NUM}%"
+  local -r msn="$(date) ${BG_RED}Alerta:${ROOT}%${RESET} mayor o igual al ${NUM}%"
+  local -r msn1="$(date) ${GREEN}${ROOT}%${RESET} menor al ${NUM}%"
 
   dlog # validacion de directorio
 
@@ -79,8 +81,8 @@ cpu (){
 # @cmd Memoria usada
 used (){
   
-  msn="$(date) ${BG_RED}Alerta:${USED}%${RESET} mayor o igual al ${NUM}%"
-  msn1="$(date) ${GREEN}${USED}%${RESET} menor al ${NUM}%"
+  local -r msn="$(date) ${BG_RED}Alerta:${USED}%${RESET} mayor o igual al ${NUM}%"
+  local -r msn1="$(date) ${GREEN}${USED}%${RESET} menor al ${NUM}%"
 
   dlog  # validacion de directorio
 
@@ -95,10 +97,10 @@ used (){
 
 # @cmd Memoria libre
 free (){
-  num=1000
+  local -ri num=1000
 
-  msn="$(date) ${BG_RED}Alerta:${FREE}M${RESET} menor o igual al ${num}M"
-  msn1="$(date) ${GREEN}${FREE}M${RESET} mayor al ${num}M"
+  local -r msn="$(date) ${BG_RED}Alerta:${FREE}M${RESET} menor o igual al ${num}M"
+  local -r msn1="$(date) ${GREEN}${FREE}M${RESET} mayor al ${num}M"
 
   dlog  # validacion de directorio
 
@@ -113,8 +115,8 @@ free (){
 # @cmd Swap usado en %
 swap (){
   
-  msn="$(date) ${BG_RED}Alerta:${SWAP}%${RESET} mayor o igual al ${NUM}%"
-  msn1="$(date) ${GREEN}${SWAP}%${RESET} menor al ${NUM}%"
+  local -r msn="$(date) ${BG_RED}Alerta:${SWAP}%${RESET} mayor o igual al ${NUM}%"
+  local -r msn1="$(date) ${GREEN}${SWAP}%${RESET} menor al ${NUM}%"
 
   dlog  # validacion de directorio
 
@@ -129,8 +131,8 @@ swap (){
 # @cmd Cantidad de memoria usada en el Home
 home (){
   
-  msn="$(date) ${BG_RED}Alerta:${HOME}%${RESET} mayor o igual al ${NUM}%"
-  msn1="$(date) ${GREEN}${HOME}%${RESET} menor al ${NUM}%"
+  local -r msn="$(date) ${BG_RED}Alerta:${HOME}%${RESET} mayor o igual al ${NUM}%"
+  local -r msn1="$(date) ${GREEN}${HOME}%${RESET} menor al ${NUM}%"
 
   dlog  # validacion de directorio
 
